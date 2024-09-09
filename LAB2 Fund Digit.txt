@@ -9,16 +9,16 @@
 entity LAB2_1 is 
     port (
         A, B, C : in bit; --- A, B, C are input variables.
-        F1, F2  : out bit --- F1, F2 are output variables.
+        D, E  	 : out bit --- D, E are output variables.
     );
 end LAB2_1;
 
 architecture behavior of LAB2_1 is --- Project Name
 begin
-    --- F1 = (A + C)(AB + C')
-    F1 <= (A or C) and ((A and B) or not C);
-    --- F2 = AB + AC'
-	F2 <= (A and B) or (A and (not C));
+    --- D = (A + C)(AB + C')
+    D <= (A or C) and ((A and B) or not C);
+    --- E = AB + AC'
+	 E <= (A and B) or (A and (not C));
 end behavior;
 
 
@@ -33,16 +33,16 @@ end behavior;
 entity LAB2_2 is
     port (
         A, B, C : in bit; --- A, B, C are input variables.
-        F1, F2  : out bit --- F1, F2 are output variables.
+        D, E  	 : out bit --- D, E are output variables.
     );
 end LAB2_2;
 
 architecture behavior of LAB2_2 is --- Project Name
 begin
-    --- F1 = ABC + AB'(A'C')'
-    F1 <= (A and B and C) or (A and (not B)) and (not(not A and not C));
-    --- F2 = A(C + B')
-	F2 <= A and (C or not B);
+    --- D = ABC + AB'(A'C')'
+    D <= (A and B and C) or (A and (not B)) and (not(not A and not C));
+    --- E = A(C + B')
+	E <= A and (C or not B);
 end behavior;
 
 
