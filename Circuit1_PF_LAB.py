@@ -7,9 +7,9 @@ def f(C, idx, SUM, L):
     f(C, idx+1, SUM + C[idx], L + '1')
     
 def Nearest(c, S):
-    minn = 99
-    idx = 222
-    for i in range(len(S)):
+    minn = S[0]
+    idx = 0
+    for i in range(1, len(S)):
         if minn > abs(c - S[i][0]):
             minn = abs(c - S[i][0])
             idx = i
