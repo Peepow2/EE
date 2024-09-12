@@ -4,7 +4,6 @@
  # Warning: Don't copy this code to submit.
  # If you do it, your score will be cancel immediately.
 """
-
 K0 = 3.75;     % From problem 3
 
 Ka = K0 / 2;
