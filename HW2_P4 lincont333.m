@@ -26,6 +26,5 @@ plot(t1, y1, t2, y2, t3, y3, LineWidth = 3);
 font_size = 18;
 xlabel("Time (seconds)", 'fontsize', font_size, 'fontweight', 'b')
 ylabel('Response','fontsize', font_size,'fontweight', 'b')
-
 legend("4a) K = K0 / 2", "4b) K = K0", "4c) K = K0 + 1", 'fontsize', font_size + 5);
 title("Step response when the input r(t) is a unit step", 'fontsize', font_size);
