@@ -2,7 +2,7 @@
 Lw = 8; Fsize = 24;
 
 %% Section 1
-Filename = "Cir2Lab1.csv"; %"Lab2_1.csv";
+Filename = "Lab2_1.csv";
 DATA = readmatrix(Filename);
 time  = DATA(:, 1) * 1000;
 Vs = DATA(:, 2);
@@ -16,7 +16,7 @@ ylabel('$Voltage (V)$', 'Interpreter', 'latex',FontSize = Fsize)
 grid on
 
 %% Section 2
-Filename = "Cir2Lab1.csv"; %"Lab2_1.csv";
+Filename = "Lab2_2.csv";
 DATA = readmatrix(Filename);
 time  = DATA(:, 1) * 1000;
 Vs = DATA(:, 2);
