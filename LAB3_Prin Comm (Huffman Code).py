@@ -3,7 +3,7 @@ def Data_Preparation(S):
     char_freq = sorted([(c, NAME.count(c)/len(S)) for c in set(S)], \
                        key = lambda x:x[1], reverse = True)
     # print(char_freq)
-    char = "".join([itr[0] for itr in char_freq])
+    char = [itr[0] for itr in char_freq]
     freq = [itr[1] for itr in char_freq]
     return char_freq, char, freq
 
