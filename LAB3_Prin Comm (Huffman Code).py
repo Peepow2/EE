@@ -16,6 +16,6 @@ def Huffman_Encoding(NAME):
 
 
 # Driver Code (MAIN)
-NAME = "peerawichsodsuay"
+NAME = ""
 Huffman_Code, Binary_code = Huffman_Encoding(NAME)
 show_result(Huffman_Code, Binary_code) # แสดงผลลัพธ์
