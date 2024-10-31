@@ -49,6 +49,7 @@ def Huffman_Encoding(NAME):
     Huffman_Code = ""
     for c in NAME:
         Huffman_Code += Code[0][char.index(c)]
+
     return Huffman_Code, Binary_code
 
 
