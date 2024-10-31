@@ -12,6 +12,7 @@ def show_result(Huffman_Code, Binary_code):
     print(f"Huffman_Code = {Huffman_Code} and length = {len(Huffman_Code)}")
     return
 
+
 def upper_bound(val, Arr):
     for i in range(len(Arr)-1, 0, -1):
         if Arr[i] >= val:
@@ -50,6 +51,7 @@ def Huffman_Encoding(NAME):
         Huffman_Code += Code[0][char.index(c)]
 
     return Huffman_Code, Binary_code
+
 
 # Driver Code (MAIN)
 NAME = "peerawichsodsuay" #"A" * 30 + "B" * 25 + "C" * 20 + "D" * 12 + "E" * 8 + "F" * 5
