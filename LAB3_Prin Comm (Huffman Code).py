@@ -1,11 +1,11 @@
+# เตรียมข้อมูล สร้างอาเรย์ (ตัวอักษร, ความน่าจะเป็น)
 def Data_Preparation(S): 
-    char_freq = sorted([(c, NAME.count(c)/len(S)) for c in set(S)], \
+    char_freq_prob = sorted([(c, NAME.count(c), NAME.count(c)/len(S)) for c in set(S)], \
                        key = lambda x: (x[1], x[0]), reverse = True)
-    # print(char_freq)
-    char = [itr[0] for itr in char_freq]
-    freq = [itr[1] for itr in char_freq]
-    return char_freq, char, freq
-
+    # print(char_freq_prob)
+    char = [itr[0] for itr in char_freq_prob]
+    prob = [itr[2] for itr in char_freq_prob]
+    return char_freq_prob, char, prob
 
 def show_result(Huffman_Code, Binary_code):
     print(f"Binary_code = {Binary_code}")
@@ -13,20 +13,17 @@ def show_result(Huffman_Code, Binary_code):
     print(f"length = {len(Huffman_Code)}")
     return
 
-
 def upper_bound(val, Arr):
     for i in range(len(Arr)-1, 0, -1):
         if Arr[i] >= val:
             return i + 1
     return 0
 
-
 def Huffman_Encoding(NAME):
     char_freq, char, freq = Data_Preparation(NAME)
     P_xi = [freq]
     Code = [['0', '1']]
     
-
     for i in range(1, len(char) - 1):
         val = P_xi[i-1][-2] + P_xi[i-1][-1]
         idx = upper_bound(val, P_xi[i-1][:-2:])
