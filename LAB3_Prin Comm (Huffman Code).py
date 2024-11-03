@@ -28,7 +28,6 @@ def Huffman_Encoding(NAME):
         idx = upper_bound(val, P_xi[i-1][:-2:])
         P_xi.append(P_xi[i-1][:idx] + [val] + P_xi[i-1][idx:-2])
 
-
     for i in range(len(P_xi) - 1, 0, -1):
         least = P_xi[i-1][-2] + P_xi[i-1][-1]
         for j in range(len(P_xi[i]) - 1, -1, -1):
@@ -48,7 +47,6 @@ def Huffman_Encoding(NAME):
         Huffman_Code += Code[0][char.index(c)]
 
     return Huffman_Code, Binary_code
-
 
 # Driver Code (MAIN)
 NAME = "peerawichsodsuay" #input("Your Name: ")
