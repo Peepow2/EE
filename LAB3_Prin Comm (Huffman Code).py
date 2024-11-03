@@ -1,4 +1,3 @@
-# เตรียมข้อมูล สร้างอาเรย์ (ตัวอักษร, ความน่าจะเป็น)
 def Data_Preparation(S): 
     char_freq_prob = sorted([(c, NAME.count(c), NAME.count(c)/len(S)) for c in set(S)], \
                        key = lambda x: (x[1], x[0]), reverse = True)
