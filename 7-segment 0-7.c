@@ -1,26 +1,4 @@
-    if (N == 0)
-    {
-      digitalWrite(A, HIGH);
-      digitalWrite(B, HIGH);
-      digitalWrite(C, HIGH);
-      digitalWrite(D, HIGH);
-      digitalWrite(E, HIGH);
-      digitalWrite(F, HIGH);
-      digitalWrite(G, LOW);
-    }
-
-    if (N == 1)
-    {
-      digitalWrite(A, LOW);
-      digitalWrite(B, HIGH);
-      digitalWrite(C, HIGH);
-      digitalWrite(D, LOW);
-      digitalWrite(E, LOW);
-      digitalWrite(F, LOW);
-      digitalWrite(G, LOW);
-    }
-
-    if (N == 2)
+    if (N_segment == 2)
     {
       digitalWrite(A, HIGH);
       digitalWrite(B, HIGH);
@@ -30,8 +8,8 @@
       digitalWrite(F, LOW);
       digitalWrite(G, HIGH);
     }
-
-    if (N == 3)
+    
+    if (N_segment == 3)
     {
       digitalWrite(A, HIGH);
       digitalWrite(B, HIGH);
@@ -41,8 +19,8 @@
       digitalWrite(F, LOW);
       digitalWrite(G, HIGH);
     }
-
-    if (N == 4)
+    
+    if (N_segment == 4)
     {
       digitalWrite(A, LOW);
       digitalWrite(B, HIGH);
@@ -52,8 +30,8 @@
       digitalWrite(F, HIGH);
       digitalWrite(G, HIGH);
     }
-
-    if (N == 5)
+    
+    if (N_segment == 5)
     {
       digitalWrite(A, HIGH);
       digitalWrite(B, LOW);
@@ -63,8 +41,8 @@
       digitalWrite(F, HIGH);
       digitalWrite(G, HIGH);
     }
-
-    if (N == 6)
+    
+    if (N_segment == 6)
     {
       digitalWrite(A, HIGH);
       digitalWrite(B, LOW);
@@ -74,8 +52,8 @@
       digitalWrite(F, HIGH);
       digitalWrite(G, HIGH);
     }
-
-    if (N == 7)
+    
+    if (N_segment == 7)
     {
       digitalWrite(A, HIGH);
       digitalWrite(B, HIGH);
