@@ -85,3 +85,11 @@
       digitalWrite(F, LOW);
       digitalWrite(G, LOW);
     }
+
+digitalWrite(A, LOW);
+digitalWrite(B, LOW);
+digitalWrite(C, LOW);
+digitalWrite(D, LOW);
+digitalWrite(E, LOW);
+digitalWrite(F, LOW);
+digitalWrite(G, LOW);
