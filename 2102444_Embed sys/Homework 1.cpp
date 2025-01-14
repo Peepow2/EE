@@ -19,5 +19,5 @@ void loop()
   delay(1000);
   digitalWrite(LED_pin, LOW);
   delay(1000);
-} /* "https://wokwi.com/projects/420079422533783553 */
+} /* https://wokwi.com/projects/420079422533783553 */
 
