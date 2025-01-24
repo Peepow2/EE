@@ -1,6 +1,6 @@
-function y = f(x)
-    % define value of a, b, c and d
-    a = 0.30; b = 0.70; c = 0.20; d = 0.85; 
+function y = f(x, A, B)
+    a = A(1); b = A(2); 
+    c = B(1); d = B(2);
     
     % For 0 <= x < a (First interval)
     if (x >= 0) && (x < a)
@@ -20,4 +20,5 @@ function y = f(x)
     end
 end
 
-y = f(0.2)
+a = 0.30; b = 0.70; c = 0.20; d = 0.85;
+f(0.2, [a b], [c d])
