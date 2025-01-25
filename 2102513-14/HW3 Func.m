@@ -1,11 +1,16 @@
 function y = f(x, A, B)
     a = A(1); b = A(2); 
     c = B(1); d = B(2);
+    
     %{ % Alternative
-    y = x
-    result(y >= 0 & y < a)  = (c/a) * result(y >= 0 & y < a);
-    result(y >= a & y < b)  = ((d-c)/(b-a)) * result(y >= a & y < b)  + (c - (((d-c)/(b-a))*a));
-    result(y >= b & y <= 1) = ((1-d)/(1-b)) * result(y >= b & y <= 1) + (d - (((1-d)/(1-b))*b));
+    y = x;
+    y(x >= 0 & x < a)  = (c/a) * y(x >= 0 & x < a);
+
+    y(x >= a & x < b)  = ((d-c)/(b-a)) * y(x >= a & x < b) ...
+                                + (c - (((d-c)/(b-a))*a));
+
+    y(x >= b & x <= 1) = ((1-d)/(1-b)) * y(x >= b & x <= 1) ...
+                                + (d - (((1-d)/(1-b))*b));
     }%
     
     % For 0 <= x < a (First interval)
