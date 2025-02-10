@@ -29,4 +29,4 @@ int main()
     std::cout << square.area();
     
     return 0;
-}
+} // https://onlinegdb.com/V64m-6R36
