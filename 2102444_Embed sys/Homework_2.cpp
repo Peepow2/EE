@@ -5,7 +5,7 @@ namespace mySpace
     class Square
     {
         private:
-            float length_;
+            float length_ = 0;
         
         public:
             void setLength(float length)
@@ -25,8 +25,8 @@ int main()
 {
     mySpace::Square square;
 
-    square.setLenth(10.0);
+    square.setLength(10.0);
     std::cout << square.area();
     
     return 0;
-} // https://onlinegdb.com/V64m-6R36
+} // https://onlinegdb.com/fsv_dUfrB
