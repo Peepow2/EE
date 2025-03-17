@@ -71,6 +71,24 @@ map<string, int> getName_Age(map<string, string> ID_NAME, map<string, int> ID_Ag
     {
         string ID = itr.first;
         bool vaild_ID = check_vaild_ID(ID);
+        if (!vaild_ID)
+            continue;
+        
+        
+        int Age = itr.second;
+        bool vaild_Age = check_vaild_Age(Age);
+
+        if (!vaild_Age)
+            Age = -1;      
+        
+        auto it = ID_NAME.find(ID);
+        string Name = "Unknown";
+        if (it != ID_NAME.end())
+        {
+            Name = it->second;
+        }
+        
+        NAME_Age.insert({Name, Age});
     }
 
     return NAME_Age;
@@ -98,8 +116,7 @@ int main()
     };
     
     map<string, int> map_NAME_Age = getName_Age(map_ID_NAME, map_ID_Age);
+    
     for(auto x: map_NAME_Age)
-    {
         cout << x.first << " " << x.second << endl;
-    }
 }
