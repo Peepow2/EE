@@ -48,9 +48,13 @@ map<string, int> getName_Age(map<string, string> ID_NAME, map<string, int> ID_Ag
     {
         string ID = itr.first;
         bool vaild_ID = check_vaild_ID(ID);
+        if (!vaild_ID)
+            continue;
+        
         
         string Name = itr.second;
-        if(check_vaild_Name(Name) == false)
+        bool vaild_Name = check_vaild_Name(Name);
+        if(!vaild_Name)
             Name = "Unknown";
         
         
@@ -59,12 +63,12 @@ map<string, int> getName_Age(map<string, string> ID_NAME, map<string, int> ID_Ag
         if(it != ID_Age.end())
         {
             Age = it->second;
-            if(check_vaild_Age(Age) == false)
+            bool vaild_Age = check_vaild_Age(Age);
+            if(!vaild_Age)
                 Age = -1;
         }
         
-        if (vaild_ID == true)
-            NAME_Age.insert({Name, Age});
+        NAME_Age.insert({Name, Age});
     }
     
     for(auto itr: ID_Age)
@@ -77,15 +81,18 @@ map<string, int> getName_Age(map<string, string> ID_NAME, map<string, int> ID_Ag
         
         int Age = itr.second;
         bool vaild_Age = check_vaild_Age(Age);
-
         if (!vaild_Age)
             Age = -1;      
+        
         
         auto it = ID_NAME.find(ID);
         string Name = "Unknown";
         if (it != ID_NAME.end())
         {
             Name = it->second;
+            bool vaild_Name = check_vaild_Name(Name);
+            if (!vaild_Name)
+                Name = "Unknown";
         }
         
         NAME_Age.insert({Name, Age});
