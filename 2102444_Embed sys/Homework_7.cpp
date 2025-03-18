@@ -1,7 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//**************** Check Valid ID Name & Age ****************
+// **************** Define Type of data ****************
+class member_444
+{
+    public:
+    string ID, Name;
+    int Age;
+    
+    member_444(string _ID, string _Name = "Unknown", int _Age = -1)
+    {
+        ID = _ID; 
+        Name = _Name;
+        Age = _Age;
+    }
+};
+
+bool By_Age(member_444 x, member_444 y) {
+    return x.Age < y.Age;
+}
+
+// **************** Check Valid ID Name & Age ****************
 
 // Check Valid ID
 bool check_vaild_ID(string ID) 
@@ -40,25 +59,26 @@ bool check_vaild_Age(int Age)
 
 
 //  **************** Combine 2 map ****************
-map<string, int> getName_Age(map<string, string> ID_NAME, map<string, int> ID_Age)
+map<string, pair<string, int>> getName_Age(map<string, string> ID_NAME, map<string, int> ID_Age)
 {
-    map<string, int> NAME_Age;
+    map<string, pair<string, int>> NAME_ID_Age;
 
     for(auto itr: ID_NAME)
     {
-        string ID = itr.first;
-        bool vaild_ID = check_vaild_ID(ID);
-        if (!vaild_ID)
+        string ID = itr.first; // get ID
+        bool vaild_ID = check_vaild_ID(ID); // Check vaild_ID
+        bool Repeat_ID = (NAME_ID_Age.find(ID) == NAME_ID_Age.end()); // Check repeat ID
+        if (!vaild_ID && !Repeat_ID)
             continue;
         
         
-        string Name = itr.second;
-        bool vaild_Name = check_vaild_Name(Name);
-        if(!vaild_Name)
+        string Name = itr.second; // get Name
+        bool vaild_Name = check_vaild_Name(Name); // Check Valid Name
+        if(!vaild_Name) 
             Name = "Unknown";
         
         
-        auto it = ID_Age.find(ID);
+        auto it = ID_Age.find(ID); // Find Age in ID_Age map
         int Age = -1;
         if(it != ID_Age.end())
         {
@@ -68,14 +88,16 @@ map<string, int> getName_Age(map<string, string> ID_NAME, map<string, int> ID_Ag
                 Age = -1;
         }
         
-        NAME_Age.insert({Name, Age});
+        pair<string, int> NA = {Name, Age};
+        NAME_ID_Age.insert({ID, NA});
     }
     
     for(auto itr: ID_Age)
     {
         string ID = itr.first;
         bool vaild_ID = check_vaild_ID(ID);
-        if (!vaild_ID)
+        bool Repeat_ID = (NAME_ID_Age.find(ID) != NAME_ID_Age.end());
+        if (!vaild_ID && !Repeat_ID)
             continue;
         
         
@@ -94,11 +116,11 @@ map<string, int> getName_Age(map<string, string> ID_NAME, map<string, int> ID_Ag
             if (!vaild_Name)
                 Name = "Unknown";
         }
-        
-        NAME_Age.insert({Name, Age});
+        pair<string, int> NA = {Name, Age};
+        NAME_ID_Age.insert({ID, NA});
     }
 
-    return NAME_Age;
+    return NAME_ID_Age;
 }
 //  **************** End of Combine 2 map ****************
 
@@ -122,8 +144,20 @@ int main()
         {"6789012345678", 23}   // only in map2
     };
     
-    map<string, int> map_NAME_Age = getName_Age(map_ID_NAME, map_ID_Age);
+    map<string, pair<string, int>> map_ID_NAME_Age = getName_Age(map_ID_NAME, map_ID_Age);
     
-    for(auto x: map_NAME_Age)
-        cout << x.first << " " << x.second << endl;
+    cout << "map_ID_NAME_Age\n";
+    for(auto x: map_ID_NAME_Age)
+        cout << x.first << " " << x.second.first << " " << x.second.second << endl;
+        
+    vector <member_444> V;
+    for(auto x: map_ID_NAME_Age)
+        V.push_back(member_444(x.first, x.second.first, x.second.second));
+        
+    sort(V.begin(), V.end(), By_Age);
+    
+    cout << "\nVector_ID_NAME_Age\n";
+    for(auto itr: V)
+        cout << itr.ID << " -> Name = " << itr.Name << ", Age = " << itr.Age << endl;
+    
 }
