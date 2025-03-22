@@ -13,7 +13,7 @@ void setup()
 void loop()
 {
   // ถ้าปุ่มที่ 1 ถูกกด หรือ ปุ่มที่ 2 ถูกกด 
-  bool LED_state = digitalRead(Button1) + \
+  bool LED_state = digitalRead(Button1) == HIGH \
                       digitalRead(Button2) == HIGH;
   
   // แสดงผลตาม LED_state
