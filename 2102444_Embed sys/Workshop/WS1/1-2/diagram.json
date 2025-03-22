@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 83.4, "left": -54.8, "attrs": {} },
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": -124.2, "left": -99.6, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -188.8,
+      "left": -66.4,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 129.6,
+      "left": 76.25,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 130.8,
+      "left": 81,
+      "attrs": { "color": "yellow", "flip": "1" }
+    }
+  ],
+  "connections": [
+    [ "mega:5V", "bb1:tp.9", "red", [ "v0" ] ],
+    [ "mega:GND.2", "bb1:tn.10", "black", [ "v0" ] ],
+    [ "mega:7", "bb1:14t.a", "orange", [ "v0" ] ],
+    [ "ldr1:AO", "mega:A2", "yellow", [ "h0" ] ],
+    [ "ldr1:GND", "bb1:tn.25", "black", [ "h201.6", "v258.8" ] ],
+    [ "ldr1:VCC", "bb1:tp.25", "red", [ "h220.8", "v259.2" ] ],
+    [ "r1:1", "bb1:tn.12", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:15t.d", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:14t.e", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:15t.e", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
