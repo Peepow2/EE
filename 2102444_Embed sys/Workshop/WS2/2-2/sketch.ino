@@ -5,6 +5,13 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 RTC_DS3231 RTC;
 
+void print2digits(int number)
+{
+  if (number >= 0 && number < 10)
+    lcd.print('0');
+  lcd.print(number, DEC);
+}
+
 void show_Time()
 {
   DateTime now = RTC.now();
@@ -20,14 +27,6 @@ void show_Time()
   lcd.print('/');
   print2digits(now.month());
 }
-
-void print2digits(int number)
-{
-  if (number >= 0 && number < 10)
-    lcd.print('0');
-  lcd.print(number, DEC);
-}
-
 
 int ButtonPin = 2;
 
