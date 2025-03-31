@@ -5,7 +5,22 @@
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 RTC_DS3231 RTC;
 
-char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+void show_Time()
+{
+  DateTime now = RTC.now();
+  lcd.setCursor(0, 0);
+  print2digits(now.hour());
+  lcd.print(':');
+  print2digits(now.minute());
+  lcd.print(':');
+  print2digits(now.second());
+
+  lcd.setCursor(10, 0);
+  print2digits(now.day());
+  lcd.print('/');
+  print2digits(now.month());
+}
+
 void print2digits(int number)
 {
   if (number >= 0 && number < 10)
@@ -49,19 +64,8 @@ void loop()
   
   lcd.setCursor(0, 1);
   lcd.print(sentence);
-  
-  DateTime now = RTC.now();
-  lcd.setCursor(0, 0);
-  print2digits(now.hour());
-  lcd.print(':');
-  print2digits(now.minute());
-  lcd.print(':');
-  print2digits(now.second());
 
-  lcd.setCursor(10, 0);
-  print2digits(now.day());
-  lcd.print('/');
-  print2digits(now.month());
+  show_Time();
 
   if(digitalRead(ButtonPin) == HIGH)
   {
@@ -72,6 +76,8 @@ void loop()
       for(int j=0;j<16;j++)
           S[j] = sentence[(i+j)%len];
       lcd.print(S);
+
+      show_Time();
       delay(400);
     }
   }
