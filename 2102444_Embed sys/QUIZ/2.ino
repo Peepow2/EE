@@ -54,9 +54,6 @@ void loop()
       overhum = (h >= 50 && h <= 60);
       Vibra = (digitalRead(Sensor) == HIGH);
 
-      Serial.println(h, t);
-      Serial.println(Vibra);
-
       if(overtemp)
       { 
         digitalWrite(Temp_LED, HIGH);
@@ -94,6 +91,6 @@ void loop()
     lcd.setCursor(0, 0);
     lcd.print("Have a good Day!!");
     RESET = false;
+    delay(3000);
   }
-  delay(3000);
 }
